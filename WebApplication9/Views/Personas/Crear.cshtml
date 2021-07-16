@@ -1,0 +1,46 @@
+﻿@model WebApplication9.Models.Persona
+
+@{
+    ViewData["Title"] = "Crear";
+}
+
+<h1>Crear</h1>
+
+<h4>Persona</h4>
+<hr />
+
+<form asp-action="Crear">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <section class="col col-6">
+            <div class="form-group">
+                <label asp-for="Cedula" class="control-label"></label>
+                <input asp-for="Cedula" maxlength="10" required class="form-control" />
+                <span asp-validation-for="Cedula" class="text-danger"></span>
+            </div>
+        </section>
+        <section class="col col-6">
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input type="text" asp-for="Nombre" required class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+        </section>
+    </div>
+    <div class="row">
+        <section class="col col-6">
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </section>
+        <section class="col col-6">
+            <div>
+                <a asp-action="Index">Atras</a>
+            </div>
+        </section>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
